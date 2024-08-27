@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./authSlice";
+import commentsReducer from "./commentsSlice";
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    comments: commentsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

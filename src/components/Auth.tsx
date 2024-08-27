@@ -18,10 +18,10 @@ export const Auth: React.FC = () => {
   };
 
   return (
-    <div className="flex w-full justify-end py-8">
+    <div className="flex w-full justify-end py-4">
       <button
         onClick={signInwithGoogle}
-        className="flex items-center mx-8 border-2 p-2 border-zinc-600 border-solid rounded-lg hover:bg-zinc-100"
+        className="flex items-center mx-8 border-2 p-1 border-zinc-600 border-solid rounded-lg hover:bg-zinc-100"
       >
         <FcGoogle className="inline-block" size={32} />
         <p className="inline-block font-bold text-lg mx-2">
