@@ -15,7 +15,7 @@ import { useComments } from "./hooks/useComments";
 function App() {
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
-  const { comments, addComment, addReaction } = useComments("latest");
+  const { comments, addReply } = useComments("latest");
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -28,13 +28,8 @@ function App() {
   return (
     <div className="px-72">
       {isAuthenticated ? <Header /> : <Auth />}
-      <CommentInput onSubmit={addComment} parentId={null} />
-      <CommentList
-        comments={comments}
-        onSubmit={addComment}
-        onReaction={addReaction}
-        sortBy="latest"
-      />
+      <CommentInput />
+      <CommentList comments={comments} onSubmit={addReply} sortBy="latest" />
       <ToastContainer />
     </div>
   );

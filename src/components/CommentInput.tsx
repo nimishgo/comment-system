@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
-import { MentionsInput, Mention } from "react-mentions";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "react-toastify";
 import { auth } from "../firebase";
-
-interface User {
-  id: string;
-  display: string;
-}
 
 interface CommentInputProps {
   onSubmit: (
@@ -27,21 +21,6 @@ const CommentInput: React.FC<CommentInputProps> = ({
 }) => {
   const [text, setText] = useState("");
   const [file, setFile] = useState<File | null>(null);
-
-  const fetchUsers = async (
-    query: string,
-    callback: (users: User[]) => void,
-  ) => {
-    const users: User[] = [
-      { id: "1", display: "johndoe" },
-      { id: "2", display: "janedoe" },
-    ];
-    callback(
-      users.filter((user) =>
-        user.display.toLowerCase().includes(query.toLowerCase()),
-      ),
-    );
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

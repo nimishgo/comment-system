@@ -13,11 +13,7 @@ interface CommentItemProps {
   depth: number;
 }
 
-const CommentItem: React.FC<CommentItemProps> = ({
-  comment,
-  onReaction,
-  depth,
-}) => {
+const CommentItem: React.FC<CommentItemProps> = ({ comment, depth }) => {
   return (
     <div
       className={`flex space-x-3 p-4 bg-white shadow rounded-lg mt-4 ${depth > 0 ? "ml-8" : ""}`}
@@ -48,6 +44,7 @@ const CommentItem: React.FC<CommentItemProps> = ({
           <ReactionButtons
             commentId={comment.id}
             reactions={comment.reactions}
+            onReaction={onReaction}
           />
           {Object.entries(comment.reactions).map(
             ([reaction, count]) =>
